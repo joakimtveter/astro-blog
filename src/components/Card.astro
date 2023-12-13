@@ -1,14 +1,14 @@
 ---
 interface Props {
 	title: string;
-	body: string;
+	description: string;
 	src: string;
 	type: string;
 	href: string;  
 	github: string;
 }
 
-const { href, title, body, src, github, type } = Astro.props;
+const { href, title, description, src, github, type } = Astro.props;
 ---
 
 <li class="project-card surface-variant">
@@ -17,12 +17,12 @@ const { href, title, body, src, github, type } = Astro.props;
 		<div class={`tag ${type}`}>{type}</div>
 	</div>
 	<div class="content">
-			<h2 class="title">{title}</h2>
-		<p>{body}</p>
-		<div class="links">
-			<a href={github}>View <span class="visually-hidden">{title}</span> on Github</a>
-			<a href={href}>View <span class="visually-hidden">{title}</span> site</a>
-		</div>
+		<h2 class="title">{title}</h2>
+		<p class="description">{description}</p>
+	</div>
+	<div class="links">
+		<a href={github}>View <span class="visually-hidden">{title}</span> on Github</a>
+		<a href={href}>View <span class="visually-hidden">{title}</span> site</a>
 	</div>
 </li>
 <style>
@@ -30,15 +30,24 @@ const { href, title, body, src, github, type } = Astro.props;
 		list-style-type: none;
 		border-radius: 1rem;
 		overflow: hidden;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.content {
-		padding: 1rem 1rem 2rem;
+		padding: 1rem;
 	}
 
 	.title {
-		font-size: var(--fs-3);
-		margin-block: 0;
+		font-size: var(--fs-2);
+		margin-block-start: 0;
+		margin-block-end: 0.5rem;
+	}
+
+	.description {
+		font-size: var(--fs-n1);
+		margin-block-start: 0;
+		margin-block-end: 0.5rem;
 	}
 
 	.card-image {
@@ -53,6 +62,8 @@ const { href, title, body, src, github, type } = Astro.props;
 	.links {
 		display: flex;
 		justify-content: space-between;
+		padding: 0.5rem 1rem;
+		margin-block-start: auto;
 	}
 	a {
 		font-size: var(--fs-n1);

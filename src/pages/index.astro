@@ -4,27 +4,27 @@ import Card from "../components/Card.astro";
 
 const projects = [
     {
-        title: 'Holidaze',
-        body: 'This vas my submission for the Final Exam at noroff',
+        title: 'Holidaze - Project Exam 2',
+        description: 'It is an AirBnB clone, using React, Material UI, and Redux. My submission for the final exam at Noroff',
         type: 'school',
         src: 'https://pe2.tveter.dev/screenshot.png',
         github: 'https://github.com/joakimtveter/noroff-project-exam-2',
         href: 'https://pe2.tveter.dev'
     },
 	{
-        title: 'MyShop',
-        body: 'This vas my submission for the Final Exam at noroff',
+        title: 'MyShop - JavaScript Frameworks CA',
+        description: 'A ecommerce site using React and CSS modules. My submission for the JavaScript Frameworks Course Assignment at Noroff.',
         type: 'school',
         src: 'https://jsf.tveter.dev/screenshot.png',
-        github: 'https://github.com/joakimtveter/noroff-project-exam-2',
+        github: 'https://github.com/joakimtveter/noroff-js-framework',
         href: 'https://jsf.tveter.dev'
     },
 	{
-        title: 'Auction House',
-        body: 'This vas my submission for the Final Exam at noroff',
+        title: 'The Auction House - Semester Project 2',
+        description: 'An auction website created using HTML, SCSS, Vite and Javascript. My submission for the Semester Project 2 at Noroff',
         type: 'school',
         src: 'https://sp2.tveter.dev/screenshot.png',
-        github: 'https://github.com/joakimtveter/noroff-js-framework',
+        github: 'https://github.com/joakimtveter/noroff-semester-project-2',
         href: 'https://sp2.tveter.dev'
     }
 ]
@@ -41,7 +41,7 @@ const projects = [
 			<p class="intro">
 				Hi, my name is Joakim and I am a web developer from Norway.
 				I am currently building out this site, so please check back later for more content.
-				The plan is to start a development blog, and to showcase more of my projects.
+				I plan is to start a development blog, and to showcase more of my projects.
 			</p>
 		</div>
     </div>
@@ -90,8 +90,8 @@ const projects = [
     .project-grid {
 		padding: 0;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.5rem;
     }
 
 	@media (width < 700px) {
@@ -119,12 +119,12 @@ const projects = [
 
 	@media (700px < width < 900px) {
 		.project-grid {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 		.about{
 			gap: 3rem;
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(2, 1fr);
 			place-items: center;
 		}
 	}
