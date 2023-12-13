@@ -1,7 +1,7 @@
 :root {
-   --ff-heading: 'Open Sans', 'ui-sans-serif', sans-serif;
-   --ff-body: 'Open Sans', 'ui-sans-serif', sans-serif;
-   --ff-monospace: 'ui-monospace', 'DejaVu Sans Mono', 'Consolas', 'Roboto Mono', monospace;
+   --ff-heading: 'Open Sans', 'system-ui', 'ui-sans-serif', "Segoe UI", sans-serif;
+   --ff-body: 'Open Sans', 'system-ui', 'ui-sans-serif', "Segoe UI", sans-serif;
+   --ff-monospace: 'ui-monospace', 'SFMono-Regular', 'DejaVu Sans Mono', 'Consolas', 'Liberation Mono', 'Roboto Mono', monospace;
 
    --fs-n3: 0.745rem;  /* 11.92px */
    --fs-n2: 0.868125rem; /* 13.89px */
