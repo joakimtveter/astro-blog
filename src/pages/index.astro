@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from "../components/Card.astro";
+
+const projects = [
+    {
+        title: 'Holidaze',
+        body: 'This vas my submission for the Final Exam at noroff',
+        type: 'school',
+        src: 'https://pe2.tveter.dev/screenshot.png',
+        github: 'https://github.com/joakimtveter/noroff-project-exam-2',
+        href: 'https://pe2.tveter.dev'
+    },
+	{
+        title: 'MyShop',
+        body: 'This vas my submission for the Final Exam at noroff',
+        type: 'school',
+        src: 'https://jsf.tveter.dev/screenshot.png',
+        github: 'https://github.com/joakimtveter/noroff-project-exam-2',
+        href: 'https://jsf.tveter.dev'
+    },
+	{
+        title: 'Auction House',
+        body: 'This vas my submission for the Final Exam at noroff',
+        type: 'school',
+        src: 'https://sp2.tveter.dev/screenshot.png',
+        github: 'https://github.com/joakimtveter/noroff-js-framework',
+        href: 'https://sp2.tveter.dev'
+    }
+]
+---
+
+<Layout title="Joakim Tveter | Webdeveloper" description="Joakim is a webdeveloper from Norway">
+    <div class="about content-width-container primary-container">
+		<img class="profile-image" src="/joakim-tveter.webp" alt="Profile picture of Joakim Tveter" />
+		<div>
+			<hgroup>
+				<h1 class="name">Joakim Tveter</h1>
+				<p class="job-title">Web developer</p>
+			</hgroup>
+			<p class="intro">
+				Hi, my name is Joakim and I am a web developer from Norway.
+				I am currently building out this site, so please check back later for more content.
+				The plan is to start a development blog, and to showcase more of my projects.
+			</p>
+		</div>
+    </div>
+    <section>
+        <div class="content-width-container">
+            <h2 class="h3">My Projects</h2>
+			<p class="subtitle-2">These are some of my projects</p>
+            <ul class="project-grid">
+                {projects.map((project) =>
+                        <Card {...project}/>)}
+
+            </ul>
+        </div>
+    </section>
+</Layout>
+
+<style>
+	.profile-image {
+		width: 100%;
+		border-radius: 50%;
+		margin-block-end: 1rem;
+	}
+
+	.about {
+		margin-block: 4rem;
+		padding: 4rem 2rem;
+		border-radius: 1.5rem;
+	}
+
+	.name {
+		margin-block: 0;
+		font-size: var(--fs-7);
+		line-height: 1.1;
+	}
+
+    .job-title {
+        font-size: var(--fs-3);
+		margin-block: 0;
+    }
+
+	.intro {
+		font-size: var(--fs-1);
+		margin-block: 2rem;
+	}
+
+    .project-grid {
+		padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+    }
+
+	@media (width < 700px) {
+		.profile-image {
+			margin-top: -200px;
+		}
+
+		.about {
+			margin-block-start: 10rem;
+			text-align: center;
+			margin-inline: 1rem;
+		}
+		.project-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (width > 700px) {
+		.about {
+			gap: 3rem;
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			place-items: center;
+		}
+	}
+
+	@media (700px < width < 900px) {
+		.project-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+		.about{
+			gap: 3rem;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			place-items: center;
+		}
+	}
+
+</style>
