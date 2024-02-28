@@ -2,18 +2,19 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
 }
 
 
 html {
-    line-sizing: normal;
     -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
 }
 body {
-    margin: 0;
     line-height: 1.5;
+    min-height: 100dvh;
     -webkit-font-smoothing: antialiased;
-
 }
 
 input,
@@ -21,10 +22,11 @@ button,
 textarea,
 optgroup,
 select {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
+    font: inherit;
+}
+
+textarea:not([rows]) {
+    min-height: 6em;
 }
 
 img,
@@ -34,7 +36,9 @@ canvas,
 audio,
 iframe,
 embed,
-object {
+object,
+picture,
+figure {
     display: block;
     max-width: 100%;
 }
@@ -44,6 +48,11 @@ svg,
 video,
 canvas {
     height: auto;
+}
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
 }
 
 pre {
@@ -59,4 +68,13 @@ h4,
 h5,
 h6 {
     overflow-wrap: break-word;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#root, #__next {
+    isolation: isolate;
 }

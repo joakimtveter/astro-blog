@@ -23,6 +23,7 @@ h5,
 h6 {
     font-family: var(--ff-heading);
     margin-block: 0.12em;
+    text-wrap: balance;
 }
 
 .display-1 {
@@ -43,6 +44,7 @@ h6 {
 
 h1, .h1 {
     font-size: var(--fs-7);
+    font-family: var(--ff-monospace);
     font-weight: 600;
     line-height: 1.2;
 }
@@ -92,6 +94,7 @@ pre, code {
 
 a:any-link {
     color: inherit;
+    text-decoration-skip-ink: auto;
 }
 
 .dark-mode .dark-mode-icon {
