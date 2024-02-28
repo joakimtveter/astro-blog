@@ -1,30 +1,38 @@
 <script>
+    export let lang = 'no';
     let isDarkMode = setTheme();
 
     function setTheme() {
-        let local = localStorage.getItem('theme')
-        console.log('local: ', local)
-        if (local === 'dark-mode') {
-            console.log('local: set dark')
+        let savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'dark-mode') {
             document.body.classList.add('dark-mode')
+            document.body.classList.remove('light-mode')
             return true
         }
-        if (local === 'light-mode') {
+        if (savedTheme === 'light-mode') {
+            document.body.classList.add('light-mode')
             document.body.classList.remove('dark-mode')
-            console.log('local: set light')
             return false
         }
-        let auto = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-        console.log('auto: ', auto)
-        if (auto === false) {
+        let userPrefersDark = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        if (userPrefersDark === false) {
+            document.body.classList.add('light-mode')
             document.body.classList.remove('dark-mode')
             return false
         }
         document.body.classList.add('dark-mode')
+        document.body.classList.remove('light-mode')
         return true
     }
     function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode')
+        if (isDarkMode) {
+            document.body.classList.remove('dark-mode')
+            document.body.classList.add('light-mode')
+        } else {
+            document.body.classList.remove('light-mode')
+            document.body.classList.add('dark-mode')
+        }
         isDarkMode = !isDarkMode
         localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode')
     }
@@ -41,7 +49,11 @@
         </svg>
     {/if}
     <span class="visually-hidden">
-        {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        { isDarkMode ?
+            (lang === 'no' ? 'Bytt til lyst utseende' : 'Switch to Light Mode')
+            :
+            (lang === 'no' ? 'Bytt til mørkt utseende' : 'Switch to Dark Mode')
+        }
     </span>
 </button>
 

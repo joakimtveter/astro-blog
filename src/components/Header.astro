@@ -1,0 +1,81 @@
+---
+import DarkModeToggle from "../components/svelte/DarkModeToggle.svelte"
+
+interface Props {
+    lang: string;
+    translatedPath?: string;
+}
+
+const { lang= 'no', translatedPath} = Astro.props;
+
+---
+<header>
+    <nav>
+        <ul class="nav-list" role="list">
+            {lang === 'no' ? (
+                    <!--<li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link" href="/prosjekter">Prosjekter</a></li>-->
+                    <li class="lang-switcher">
+                        <a href={translatedPath ?? "/en"} lang="en">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+                                <clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath>
+                                <clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
+                                <g clip-path="url(#a)">
+                                    <path d="M0 0v30h60V0z" fill="#012169"/>
+                                    <path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/>
+                                    <path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/>
+                                    <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/>
+                                    <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+                                </g>
+                            </svg>
+                            <span class="visually-hidden">Change language to English</span>
+                        </a>
+                    </li>
+            ) : (
+                    <!--<li class="nav-item"><a class="nav-link" href="/en/blog">Blog</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>-->
+                    <li class="lang-switcher">
+                        <a href={translatedPath ?? "/"} lang="no">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16">
+                                <path fill="#ba0c2f" d="M0 0h22v16H0z"/>
+                                <path d="M0 8h22M8 0v16" stroke="#fff" stroke-width="4"/>
+                                <path d="M0 8h22M8 0v16" stroke="#00205b" stroke-width="2"/>
+                            </svg>
+                            <span class="visually-hidden">Bytt til Norsk språk</span>
+                        </a>
+                    </li>
+            )}
+            <DarkModeToggle client:only="svelte" lang={lang}/>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        padding: 1rem 2rem;
+    }
+
+    .lang-switcher {
+        height: 40px;
+        width: 40px;
+        border: 2px solid var(--color-on-background);
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-item:hover .nav-link {
+        text-decoration: underline;
+    }
+
+    .nav-link {
+        font-family: var(--ff-monospace);
+        font-size: var(--fs-2);
+        text-decoration: none;
+        text-transform: lowercase;
+    }
+</style>

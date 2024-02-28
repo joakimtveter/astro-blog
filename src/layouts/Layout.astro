@@ -1,18 +1,21 @@
 ---
-
 import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 import '../styles/main.css'
-import DarkModeToggle from "../components/svelte/DarkModeToggle.svelte";
+
 interface Props {
 	title: string;
-	description?: string;
+	description: string;
+	lang: string;
+	translatedPath?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang= 'no', translatedPath} = Astro.props;
+
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -21,13 +24,9 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header>
-			<DarkModeToggle client:only="svelte"/>
-		</header>
+		<Header lang={lang} translatedPath={translatedPath} />
 		<slot />
 		<Footer />
 	</body>
 </html>
-<style is:global>
 
-</style>
