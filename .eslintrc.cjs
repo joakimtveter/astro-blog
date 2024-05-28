@@ -5,7 +5,7 @@ module.exports = {
     ],
     overrides: [
         {
-            files: ["*.astro"],
+            files: ["**/*.{js,svelte}"],
             parser: "astro-eslint-parser",
             parserOptions: {
                 parser: "@typescript-eslint/parser",
