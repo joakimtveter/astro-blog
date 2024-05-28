@@ -1,6 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Card from "../../components/Card.astro";
+import calculateAge from "@/utils/calculateAge";
+import Layout from '@/layouts/Layout.astro';
+import Card from "@/components/Card.astro";
+import TechnologyListItem from "@/components/TechnologyListItem.astro";
+
+const age = calculateAge('1986/06/11')
+
 
 const projects = [
     {
@@ -30,7 +35,7 @@ const projects = [
 ]
 ---
 
-<Layout title="Joakim Tveter | Webdeveloper" description="Joakim is a webdeveloper from Norway" lang="en">
+<Layout title="Joakim Tveter | Full-stack Web Developer" description="Joakim is a web developer from Stavanger, Norway" lang="en">
     <div class="about content-width-container primary-container">
 		<img class="profile-image" src="/joakim-tveter.webp" alt="Profile picture of Joakim Tveter" />
 		<div>
@@ -39,9 +44,7 @@ const projects = [
 				<p class="job-title">Web developer</p>
 			</hgroup>
 			<p class="intro">
-				Hi, my name is Joakim and I am a web developer from Norway.
-				I am currently building out this site, so please check back later for more content.
-				I plan to start a development blog, and to showcase more of my projects.
+				Hello, my name is Joakim and I'm {age} years old. I work as a web developer in Stavanger, Norway. I am passionate about great user experiences, CSS and accessibility.
 			</p>
 			<div class="socials">
 				<a class="brand-link linkedin" href="https://www.linkedin.com/in/joakimtveter/">
@@ -65,6 +68,26 @@ const projects = [
 			</div>
 		</div>
     </div>
+	<section>
+		<div class="content-width-container">
+			<hgroup>
+				<h2 class="h3">Teknologier jeg leker med</h2>
+				<p class="subtitle-2">
+					At work I mainly code React.js frontends.
+					But these are the technologies I play with in my spare time so I can learn new things,
+					have fun, and get a better understanding of what the technologies can be used for.
+				</p>
+			</hgroup>
+			<ul class="tech-list">
+				<TechnologyListItem name="astro" />
+				<TechnologyListItem name="angular" />
+				<TechnologyListItem name="svelte" />
+				<TechnologyListItem name="c-sharp" />
+				<TechnologyListItem name="dotnet" />
+				<TechnologyListItem name="umbraco" />
+			</ul>
+		</div>
+	</section>
     <section>
         <div class="content-width-container">
             <h2 class="h3">My Projects</h2>
@@ -79,6 +102,18 @@ const projects = [
 </Layout>
 
 <style>
+	section {
+		padding-block: 2rem;
+	}
+
+	.tech-list {
+		display: grid;
+		grid-template-columns: repeat( auto-fit, minmax(40px, 75px) );
+		gap: 3rem;
+		list-style: none;
+		padding-inline: 0;
+		padding-block: 2rem;
+	}
 	.socials {
 		display: flex;
 		gap: 1rem;

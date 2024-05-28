@@ -5,9 +5,10 @@ module.exports = {
     ],
     overrides: [
         {
-            files: ["**/*.{js,svelte}"],
+            files: ["**/*.svelte"],
             parser: "astro-eslint-parser",
             parserOptions: {
+                // ecmaVersion: 2015,
                 parser: "@typescript-eslint/parser",
                 extraFileExtensions: [".astro"],
             },

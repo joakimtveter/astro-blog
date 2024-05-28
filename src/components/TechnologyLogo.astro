@@ -4,6 +4,7 @@ import Svelte from '@/assets/technologies/svelte.svg?raw';
 import CSharp from '@/assets/technologies/c-sharp.svg?raw';
 import Umbraco from '@/assets/technologies/umbraco.svg?raw';
 import DotNet from '@/assets/technologies/dotnet.svg?raw';
+import Astrojs from '@/assets/technologies/astro.svg?raw';
 interface Props {
     name: string;
 }
@@ -16,6 +17,7 @@ const { name} = Astro.props;
 {name === 'umbraco' ? <Fragment set:html={Umbraco} /> : null}
 {name === 'c-sharp' ? <Fragment set:html={CSharp} /> : null}
 {name === 'dotnet' ? <Fragment set:html={DotNet} /> : null}
+{name === 'astro' ? <Fragment set:html={Astrojs} /> : null}
 
 <style>
 
