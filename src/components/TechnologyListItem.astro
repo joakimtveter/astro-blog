@@ -1,0 +1,28 @@
+---
+import TechnologyLogo from "./TechnologyLogo.astro";
+interface Props {
+    name: string;
+    link: string;
+}
+
+const { name, link} = Astro.props;
+---
+
+<li>
+    <a href={link}>
+        <TechnologyLogo name={name} />
+        <span class="visually-hidden">{name}</span>
+    </a>
+</li>
+
+<style>
+    li {
+        background-color: hotpink;
+    }
+
+    a {
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+    }
+</style>

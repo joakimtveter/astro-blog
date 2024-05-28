@@ -1,27 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from "../components/Card.astro";
+import TechnologyListItem from "../components/TechnologyListItem.astro";
+import calculateAge from "../utils/calculateAge";
+
+const age = calculateAge('1986/06/11')
 
 const projects = [
 {
-    title: 'Holidaze - Project Exam 2',
-    description: 'It is an AirBnB clone, using React, Material UI, and Redux. My submission for the final exam at Noroff',
+    title: 'Holidaze - Prosjekt Eksamen 2',
+    description: 'Avsluttende oppgave på Noroff. Det er en AirBnB klone, laget med React, Material UI, Redux, og RTK-Query.',
     type: 'school',
     src: 'https://pe2.tveter.dev/screenshot.png',
     github: 'https://github.com/joakimtveter/noroff-project-exam-2',
     href: 'https://pe2.tveter.dev'
     },
 {
-    title: 'MyShop - JavaScript Frameworks CA',
-    description: 'A ecommerce site using React and CSS modules. My submission for the JavaScript Frameworks Course Assignment at Noroff.',
+    title: 'MyShop - JavaScript Rammeverk',
+    description: 'En nettbutikk laget med React and CSS-moduler. Dette var min innlevering i faget JavaScript Rammeverk ved Noroff.',
     type: 'school',
     src: 'https://jsf.tveter.dev/screenshot.png',
     github: 'https://github.com/joakimtveter/noroff-js-framework',
     href: 'https://jsf.tveter.dev'
     },
 {
-    title: 'The Auction House - Semester Project 2',
-    description: 'An auction website created using HTML, SCSS, Vite and Javascript. My submission for the Semester Project 2 at Noroff',
+    title: 'The Auction House - Semester Prosjekt 2',
+    description: 'En auksjonsnettside laget med HTML, SCSS, Vite, og JavaScript. Dette var min innlevering ved slutten av første semester på andre året ved Noroff',
     type: 'school',
     src: 'https://sp2.tveter.dev/screenshot.png',
     github: 'https://github.com/joakimtveter/noroff-semester-project-2',
@@ -39,20 +43,20 @@ const projects = [
                 <p class="job-title">Full-stack web-utvikler</p>
             </hgroup>
             <p class="intro">
-                Hei, jeg heter Joakim og jeg jobber som web-utvikler i Stavanger-området.
+                Hei, jeg heter Joakim og er {age} år gammel. Jeg jobber som web-utvikler i Stavanger-området og er lidenskapelig opptatt av gode brukeropplevelser, CSS, og universell utforming.
             </p>
             <div class="socials">
                 <a class="brand-link linkedin" href="https://www.linkedin.com/in/joakimtveter/">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
                     </svg>
-                    <span class="visually-hidden">Min <span lang="en">LinkedIn</span> profil</span>
+                    <span class="visually-hidden">Min LinkedIn profil</span>
                 </a>
                 <a class="brand-link github" href="https://github.com/joakimtveter">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                         <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
                     </svg>
-                    <span class="visually-hidden">Min <span lang="en">Github</span></span>
+                    <span class="visually-hidden">Min Github</span>
                 </a>
                 <a class="brand-link threads" href="https://www.threads.net/@joakimtveter">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -63,6 +67,26 @@ const projects = [
             </div>
         </div>
     </div>
+    <section>
+        <div class="content-width-container">
+            <hgroup>
+                <h2 class="h3">Teknologier jeg leker med</h2>
+                <p class="subtitle-2">
+                    På jobb koder jeg hovedsakelig frontend i React.
+                    Men dette er teknologiene jeg leker meg med på fritiden slik at jeg kan lære nye ting,
+                    ha det gøy, og få en bedre forståelse hva teknologiene kan brukes til.
+                </p>
+            </hgroup>
+            <ul class="tech-list">
+                <TechnologyListItem name="angular" />
+                <TechnologyListItem name="svelte" />
+                <TechnologyListItem name="umbraco" />
+                <TechnologyListItem name="dotnet" />
+                <TechnologyListItem name="c-sharp" />
+                <TechnologyListItem name="astro" />
+            </ul>
+        </div>
+    </section>
     <section>
         <div class="content-width-container">
             <h2 class="h3">Mine Prosjekter</h2>
@@ -77,6 +101,14 @@ const projects = [
 </Layout>
 
 <style>
+    .tech-list {
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(25px, 75px) );
+        gap: 3rem;
+        list-style: none;
+        padding-inline: 0;
+        padding-block: 2rem;
+    }
     .socials {
         display: flex;
         gap: 1rem;
