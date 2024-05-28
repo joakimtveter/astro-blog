@@ -1,3 +1,4 @@
+
 export default function calculateAge(birthday: string): number {
   const today = new Date();
   const birthDate = new Date(birthday);

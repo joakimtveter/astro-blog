@@ -16,8 +16,8 @@ const { lang= 'no', translatedPath} = Astro.props;
                     <!--<li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>-->
                     <!--<li class="nav-item"><a class="nav-link" href="/prosjekter">Prosjekter</a></li>-->
                     <li class="lang-switcher">
-                        <a href={translatedPath ?? "/en"} lang="en">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+                        <a href={translatedPath ?? "/en"} lang="en" title="Change language to English">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" aria-hidden="true">
                                 <clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath>
                                 <clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath>
                                 <g clip-path="url(#a)">
@@ -35,13 +35,13 @@ const { lang= 'no', translatedPath} = Astro.props;
                     <!--<li class="nav-item"><a class="nav-link" href="/en/blog">Blog</a></li>-->
                     <!--<li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>-->
                     <li class="lang-switcher">
-                        <a href={translatedPath ?? "/"} lang="no">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16">
+                        <a href={translatedPath ?? "/"} lang="no" title="Bytt språk til Norsk">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16" aria-hidden="true">
                                 <path fill="#ba0c2f" d="M0 0h22v16H0z"/>
                                 <path d="M0 8h22M8 0v16" stroke="#fff" stroke-width="4"/>
                                 <path d="M0 8h22M8 0v16" stroke="#00205b" stroke-width="2"/>
                             </svg>
-                            <span class="visually-hidden">Bytt til Norsk språk</span>
+                            <span class="visually-hidden">Bytt språk til Norsk</span>
                         </a>
                     </li>
             )}
@@ -56,9 +56,7 @@ const { lang= 'no', translatedPath} = Astro.props;
     }
 
     .lang-switcher {
-        height: 40px;
-        width: 40px;
-        border: 2px solid var(--color-on-background);
+        min-width: 40px;
     }
 
     .nav-list {

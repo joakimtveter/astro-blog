@@ -11,14 +11,12 @@ interface Props {
 const { name} = Astro.props;
 ---
 
-{name === 'angular' ? <Fragment set:html={Angular} style="height: 100%; width: 100%"/> : null}
-{name === 'svelte' ? <Fragment set:html={Svelte} style="height: 100%; width: 100%"/> : null}
-{name === 'umbraco' ? <Fragment set:html={Umbraco} style="height: 100%; width: 100%"/> : null}
-{name === 'c-sharp' ? <Fragment set:html={CSharp} style="height: 100%; width: 100%"/> : null}
-{name === 'dotnet' ? <Fragment set:html={DotNet} style="height: 100%; width: 100%"/> : null}
+{name === 'angular' ? <Fragment set:html={Angular} /> : null}
+{name === 'svelte' ? <Fragment set:html={Svelte} /> : null}
+{name === 'umbraco' ? <Fragment set:html={Umbraco} /> : null}
+{name === 'c-sharp' ? <Fragment set:html={CSharp} /> : null}
+{name === 'dotnet' ? <Fragment set:html={DotNet} /> : null}
 
 <style>
-    svg {
-        border 1px solid red
-    }
+
 </style>
