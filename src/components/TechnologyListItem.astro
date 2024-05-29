@@ -2,18 +2,14 @@
 import TechnologyLogo from "./TechnologyLogo.astro";
 interface Props {
     name: string;
-    link: string;
 }
 
 const { name} = Astro.props;
-// const { name, link} = Astro.props;
 ---
 
 <li>
-    <!--<a href={link}>-->
         <TechnologyLogo name={name} />
         <span class="visually-hidden">{name}</span>
-    <!--</a>-->
 </li>
 
 <style>
