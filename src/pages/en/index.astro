@@ -41,7 +41,7 @@ const projects = [
 		<div>
 			<hgroup>
 				<h1 class="name">Joakim Tveter</h1>
-				<p class="job-title">Web developer</p>
+				<p class="job-title">Full-stack web developer</p>
 			</hgroup>
 			<p class="intro">
 				Hello, my name is Joakim and I'm {age} years old. I work as a web developer in Stavanger, Norway. I am passionate about great user experiences, CSS and accessibility.
@@ -71,7 +71,7 @@ const projects = [
 	<section>
 		<div class="content-width-container">
 			<hgroup>
-				<h2 class="h3">Teknologier jeg leker med</h2>
+				<h2 class="h3">Tech I'm playing with</h2>
 				<p class="subtitle-2">
 					At work I mainly code React.js frontends.
 					But these are the technologies I play with in my spare time so I can learn new things,
@@ -91,7 +91,7 @@ const projects = [
     <section>
         <div class="content-width-container">
             <h2 class="h3">My Projects</h2>
-			<p class="subtitle-2">These are some of my projects</p>
+			<p class="subtitle-2">These are some of my non work projects.</p>
             <ul class="project-grid">
                 {projects.map((project) =>
                         <Card {...project}/>)}
@@ -165,7 +165,7 @@ const projects = [
 	}
 
     .project-grid {
-		padding: 0;
+		padding: 1rem 0;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1.5rem;
