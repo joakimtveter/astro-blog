@@ -90,7 +90,7 @@ const projects = [
     <section>
         <div class="content-width-container">
             <h2 class="h3">Mine Prosjekter</h2>
-            <p class="subtitle-2">Dette er noen av mine prosjecter</p>
+            <p class="subtitle-2">Dette er noen av mine ikke jobb-relaterte prosjekter</p>
             <ul class="project-grid">
                 {projects.map((project) =>
                         <Card {...project}/>)}
@@ -164,7 +164,7 @@ const projects = [
     }
 
     .project-grid {
-        padding: 0;
+        padding: 1rem 0;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1.5rem;
