@@ -5,14 +5,15 @@ interface Props {
     link: string;
 }
 
-const { name, link} = Astro.props;
+const { name} = Astro.props;
+// const { name, link} = Astro.props;
 ---
 
 <li>
-    <a href={link}>
+    <!--<a href={link}>-->
         <TechnologyLogo name={name} />
         <span class="visually-hidden">{name}</span>
-    </a>
+    <!--</a>-->
 </li>
 
 <style>
