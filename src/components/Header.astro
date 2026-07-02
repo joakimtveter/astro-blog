@@ -13,8 +13,8 @@ const { lang= 'no', translatedPath} = Astro.props;
     <nav>
         <ul class="nav-list" role="list">
             {lang === 'no' ? (
-                    <!--<li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>-->
-                    <!--<li class="nav-item"><a class="nav-link" href="/prosjekter">Prosjekter</a></li>-->
+                    /* <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li> */
+                    /* <li class="nav-item"><a class="nav-link" href="/prosjekter">Prosjekter</a></li> */
                     <li class="lang-switcher">
                         <a href={translatedPath ?? "/en"} lang="en" title="Change language to English">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" aria-hidden="true">
@@ -32,8 +32,8 @@ const { lang= 'no', translatedPath} = Astro.props;
                         </a>
                     </li>
             ) : (
-                    <!--<li class="nav-item"><a class="nav-link" href="/en/blog">Blog</a></li>-->
-                    <!--<li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>-->
+                    /* <li class="nav-item"><a class="nav-link" href="/en/blog">Blog</a></li> */
+                    /* <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li> */
                     <li class="lang-switcher">
                         <a href={translatedPath ?? "/"} lang="no" title="Bytt språk til Norsk">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16" aria-hidden="true">
@@ -71,7 +71,7 @@ const { lang= 'no', translatedPath} = Astro.props;
     }
 
     .nav-link {
-        font-family: var(--ff-monospace);
+        font-family: var(--ff-monospace),ui-monospace;
         font-size: var(--fs-2);
         text-decoration: none;
         text-transform: lowercase;
