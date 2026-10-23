@@ -1,54 +1,34 @@
-# Astro Starter Kit: Basics
+# joakimtveter.no
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4d72e9aa-b0f9-4cf8-a73b-01684139d347/deploy-status)](https://app.netlify.com/projects/joakimtveter/deploys)
+
+Source for [joakimtveter.no](https://joakimtveter.no), my personal site. Built with [Astro](https://astro.build) and Svelte, in Norwegian (`/`) and English (`/en`).
+
+## Getting started
+
+Requires Node.js (see `.nvmrc`) and [pnpm](https://pnpm.io).
 
 ```sh
-npm create astro@latest -- --template basics
+pnpm install
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Commands
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Command             | Action                                            |
+| :------------------ | :------------------------------------------------ |
+| `pnpm install`      | Installs dependencies                             |
+| `pnpm dev`          | Starts local dev server at `localhost:4321`       |
+| `pnpm build`        | Type-checks and builds the site to `./dist/`      |
+| `pnpm preview`      | Previews the production build locally             |
+| `pnpm astro ...`    | Runs Astro CLI commands like `astro add`          |
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Project structure
 
-## 🚀 Project Structure
+- `src/pages/` – routes; English pages live in `src/pages/en/`
+- `src/components/` – Astro and Svelte components
+- `src/layouts/` – the shared page layout, including SEO meta tags
+- `src/styles/` – global CSS
+- `public/` – static files served as-is
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The style guide at `/styles` is only available while running `pnpm dev`.

@@ -4,7 +4,8 @@ import Card from "../components/Card.astro";
 import TechnologyListItem from "../components/TechnologyListItem.astro";
 import calculateAge from "../utils/calculateAge";
 
-const age = calculateAge('1986/06/11')
+const birthday = '1986/06/11'
+const age = calculateAge(birthday)
 
 const projects = [
 {
@@ -34,7 +35,7 @@ const projects = [
 ]
 ---
 
-<Layout title="Joakim Tveter | Full-stack web-utvikler" description="Joakim is en web-utvikler fra Stavanger-området." lang="no">
+<Layout title="Joakim Tveter | Full-stack web-utvikler" description="Joakim er en web-utvikler fra Stavanger-området." lang="no">
     <div class="about content-width-container primary-container">
         <img class="profile-image" src="/joakim-tveter.webp" alt="Profilbilde av Joakim Tveter" />
         <div>
@@ -43,7 +44,7 @@ const projects = [
                 <p class="job-title">Full-stack web-utvikler</p>
             </hgroup>
             <p class="intro">
-                Hei, jeg heter Joakim og er {age} år gammel. Jeg jobber som web-utvikler i Stavanger-området og er lidenskapelig opptatt av gode brukeropplevelser, CSS, og universell utforming.
+                Hei, jeg heter Joakim og er <span data-birthday={birthday}>{age}</span> år gammel. Jeg jobber som web-utvikler i Stavanger-området og er lidenskapelig opptatt av gode brukeropplevelser, CSS, og universell utforming.
             </p>
             <div class="socials">
                 <a class="brand-link linkedin" href="https://www.linkedin.com/in/joakimtveter/">

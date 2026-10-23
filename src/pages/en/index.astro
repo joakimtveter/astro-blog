@@ -4,7 +4,8 @@ import Layout from '@/layouts/Layout.astro';
 import Card from "@/components/Card.astro";
 import TechnologyListItem from "@/components/TechnologyListItem.astro";
 
-const age = calculateAge('1986/06/11')
+const birthday = '1986/06/11'
+const age = calculateAge(birthday)
 
 
 const projects = [
@@ -44,7 +45,7 @@ const projects = [
 				<p class="job-title">Full-stack web developer</p>
 			</hgroup>
 			<p class="intro">
-				Hello, my name is Joakim and I'm {age} years old. I work as a web developer in Stavanger, Norway. I am passionate about great user experiences, CSS and accessibility.
+				Hello, my name is Joakim and I'm <span data-birthday={birthday}>{age}</span> years old. I work as a web developer in Stavanger, Norway. I am passionate about great user experiences, CSS and accessibility.
 			</p>
 			<div class="socials">
 				<a class="brand-link linkedin" href="https://www.linkedin.com/in/joakimtveter/">

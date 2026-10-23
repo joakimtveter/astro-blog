@@ -1,5 +1,10 @@
 ---
 import '../styles/main.css'
+
+// Style guide for local development only, so it is not built for production
+export function getStaticPaths() {
+    return import.meta.env.DEV ? [{ params: { styleguide: 'styles' } }] : [];
+}
 ---
 <section>
     <div class="content-width-container">

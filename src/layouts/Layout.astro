@@ -12,6 +12,11 @@ interface Props {
 
 const { title, description, lang= 'no', translatedPath} = Astro.props;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const noUrl = lang === 'no' ? canonicalUrl : new URL(translatedPath ?? '/', Astro.site);
+const enUrl = lang === 'en' ? canonicalUrl : new URL(translatedPath ?? '/en/', Astro.site);
+const imageUrl = new URL('/joakim-tveter.webp', Astro.site);
+
 ---
 
 <!doctype html>
@@ -22,11 +27,33 @@ const { title, description, lang= 'no', translatedPath} = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="no" href={noUrl} />
+		<link rel="alternate" hreflang="en" href={enUrl} />
+		<link rel="alternate" hreflang="x-default" href={noUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:locale" content={lang === 'en' ? 'en_US' : 'nb_NO'} />
+		<meta name="twitter:card" content="summary" />
 	</head>
 	<body>
 		<Header lang={lang} translatedPath={translatedPath} />
 		<slot />
 		<Footer />
+		<script>
+			// The site is static, so refresh build-time values that go stale
+			import calculateAge from '@/utils/calculateAge';
+
+			document.querySelectorAll<HTMLElement>('[data-birthday]').forEach((el) => {
+				el.textContent = String(calculateAge(el.dataset.birthday!));
+			});
+			document.querySelectorAll('[data-current-year]').forEach((el) => {
+				el.textContent = String(new Date().getFullYear());
+			});
+		</script>
 	</body>
 </html>
 
